@@ -1,0 +1,1509 @@
+/* Paper and ink */
+/* Ink, photographic ghosts and damaged print. Scientific geometry stays intact. */
+.nature-insert,
+.chapter-fragment,
+.comparison-fragment {
+  display: none;
+}
+
+body.atmosphere-on {
+  --paper: #f1f0ed;
+  --bg: #eeede9;
+  --panel: #f4f3ef;
+  --ink: #232126;
+  --muted: #555159;
+  --print-violet: #685372;
+  background: var(--bg) url('./assets/paper-grain.svg');
+}
+
+.atmosphere-on .site-header {
+  background: var(--paper);
+}
+
+.atmosphere-on .hero-art img {
+  filter: grayscale(0.65) contrast(1.12);
+}
+
+.atmosphere-on .hero h1 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.atmosphere-on .hero-description {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* A photographic cut carries the accepted anime contour into the new ink spread. */
+.atmosphere-on .nature-insert {
+  display: block;
+  position: relative;
+  width: 89%;
+  max-width: 1335px;
+  height: 166px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-block: 1px solid #39343d;
+  background: #29262e;
+}
+
+.nature-landscape {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right 40%;
+  filter: saturate(0.45) contrast(1.2);
+}
+
+.nature-insert::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #24212855, transparent 50%, #56436916);
+  pointer-events: none;
+}
+
+.atmosphere-on :is(.nature-insert, .chapter-fragment)::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 54%;
+  width: 67%;
+  height: 8px;
+  background: url('./assets/nature-anime-v2.png') center 55% / 100% auto;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  transform: translateX(-7px);
+  pointer-events: none;
+}
+
+.signal-fracture {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 34%;
+  height: 12px;
+  background: #edeae5;
+  opacity: 0.23;
+  clip-path: polygon(0 0, 80% 0, 80% 35%, 100% 35%, 100% 65%, 66% 65%, 66% 100%, 0 100%);
+  pointer-events: none;
+}
+
+.atmosphere-on .chapter-fragment {
+  display: block;
+  position: relative;
+  height: 94px;
+  margin: -7px 0 24px;
+  overflow: hidden;
+  border-block: 1px solid #49434d;
+  background: url('./assets/nature-anime-v2.png') right 41% / cover no-repeat;
+  filter: saturate(0.3) contrast(1.2);
+}
+
+.chapter-fragment--catalog::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #28242d3d, transparent 65%);
+  pointer-events: none;
+}
+
+.atmosphere-on .chapter-fragment--transport {
+  height: 64px;
+  background-position: right 48%;
+}
+
+.atmosphere-on .comparison-fragment {
+  display: block;
+  position: absolute;
+  width: 170px;
+  height: 30px;
+  right: 0;
+  top: -30px;
+  background: url('./assets/nature-fragment-concept.png') center 65% / auto 120px;
+  filter: grayscale(1) contrast(1.3);
+  pointer-events: none;
+}
+
+/* Chapter lettering and annotations, without chromatic stickers or blurred numbers. */
+.atmosphere-on :is(.section-heading, .zoom-heading) {
+  border-top: 2px solid #29262d;
+}
+
+.atmosphere-on :is(.section-heading, .zoom-heading) .eyebrow {
+  color: #f5f2f6;
+  background: #27232b;
+  box-shadow: none;
+  padding: 6px 12px;
+  font-family: Consolas, monospace;
+  letter-spacing: 1.5px;
+}
+
+.atmosphere-on :is(.section-heading h2, .zoom-heading h2) {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.atmosphere-on h3 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.atmosphere-on :is(.zoom-copy > p, .route-description, .layer-detail > p:not(.eyebrow)) {
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.atmosphere-on :is(.route-direction, .molecule-note > p) {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.atmosphere-on :is(.text-link, .zoom-note a, .layer-detail a) {
+  color: #584363;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.atmosphere-on :is(.descriptor-explanation, .layer-chemistry) {
+  border-left: 2px solid #7b6c83;
+  padding-left: 14px;
+}
+
+/* Organic ink continues down the margins, never through an anatomical relationship. */
+.atmosphere-on :is(.molecules-section, .barrier-section)::before {
+  background-image: url('./assets/organic-reticulum-v5.png');
+  width: 60px;
+  opacity: 0.48;
+  filter: grayscale(1) contrast(1.2);
+}
+
+.atmosphere-on :is(.hero-art, .zoom-drawing, .comparison)::after {
+  content: none;
+}
+
+/* The darker catalog margin gives the paper panels the rhythm of a manga spread. */
+.atmosphere-on .catalog-panel {
+  background: #242228 url('./assets/paper-grain.svg');
+  border: 1px solid #242228;
+  padding: 10px;
+}
+
+.atmosphere-on .molecule-item {
+  color: #e6e1e9;
+  border: 0;
+  border-bottom: 1px solid #5a535f;
+  background: transparent;
+}
+
+.atmosphere-on .molecule-item :is(small, .list-number) {
+  color: #b6aebd;
+}
+
+.atmosphere-on .molecule-item[aria-pressed='true'] {
+  color: #242128;
+  background: #eeeaef;
+  box-shadow: none;
+  border-color: #eeeaef;
+}
+
+.atmosphere-on .molecule-item[aria-pressed='true'] :is(small, .list-number) {
+  color: #62596a;
+}
+
+.atmosphere-on .catalog-help {
+  color: #b5adbc;
+  border-color: #5d5562;
+}
+
+.atmosphere-on .catalog-panel .empty-state {
+  color: #ded5e5;
+}
+
+/* The phone catalog is a complete index, with no horizontal strip or clipped names. */
+@media (max-width: 820px) {
+  .atmosphere-on .molecule-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .atmosphere-on .molecule-item {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 1px solid #5a535f;
+    line-height: 1.3;
+  }
+
+  .atmosphere-on .molecule-item strong {
+    font-size: 14px;
+    white-space: normal;
+  }
+
+  .atmosphere-on .molecule-item :is(small, .list-number),
+  .atmosphere-on .catalog-help {
+    display: none;
+  }
+
+  .atmosphere-on .molecule-item:focus-visible {
+    outline-offset: 2px;
+  }
+
+  .atmosphere-on .molecule-item:only-child {
+    grid-column: 1 / -1;
+  }
+
+  .atmosphere-on .catalog-panel .empty-state {
+    grid-column: 1 / -1;
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 581px) and (max-width: 820px) {
+  .atmosphere-on .molecule-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 360px) {
+  .atmosphere-on .molecule-item {
+    padding-inline: 8px;
+  }
+
+  .atmosphere-on .molecule-item strong {
+    font-size: 13px;
+  }
+}
+
+.atmosphere-on :is(.zoom-layout, .structure-stage, .barrier-map) {
+  background: #f5f4f0 url('./assets/paper-grain.svg');
+  border: 1px solid #302a34;
+  box-shadow: none;
+}
+
+.atmosphere-on .zoom-drawing {
+  background: linear-gradient(160deg, #efedf2, transparent 65%);
+}
+
+.atmosphere-on :is(.structure-label, .zoom-frame-caption) {
+  background: #29252f;
+  color: #f7f4f8;
+  font:
+    9px Consolas,
+    monospace;
+  letter-spacing: 1px;
+  padding: 6px 9px;
+}
+
+.atmosphere-on .structure-stage::after {
+  background: #252228;
+  width: 58px;
+  height: 2px;
+  clip-path: polygon(0 0, 40% 0, 40% 50%, 58% 50%, 58% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.atmosphere-on .descriptor {
+  background: transparent;
+  border-color: #8d8594;
+}
+
+.atmosphere-on .descriptor[aria-pressed='true'] {
+  background: #ded9e3;
+  border-color: #5b4c65;
+  box-shadow: inset 2px 0 0 #5b4c65;
+}
+
+.atmosphere-on .smiles-block {
+  background: #e8e4ec;
+}
+
+.atmosphere-on .comparison-heading {
+  position: relative;
+  padding: 18px;
+  color: #f2edf5;
+  background: #29252f url('./assets/paper-grain.svg');
+}
+
+.atmosphere-on .comparison-heading :is(.eyebrow, .text-button) {
+  color: #bfb2ca;
+}
+
+.atmosphere-on .property-card {
+  border-top: 1px solid #726877;
+}
+
+.atmosphere-on .chart-toolbar {
+  border-top: 0;
+}
+
+.atmosphere-on .bar-track {
+  background: #e0dce3;
+}
+
+.atmosphere-on .layer-detail {
+  padding: 22px;
+  background: #e6e2e9 url('./assets/paper-grain.svg');
+  border: 1px solid #8b8194;
+  border-top: 3px solid #302836;
+}
+
+.atmosphere-on .layer-detail .layer-index {
+  color: #8c8196;
+}
+
+/* Buttons are quiet ink labels: no squares, colored corners, or offset colored frames. */
+.atmosphere-on button::after {
+  content: none;
+}
+
+.atmosphere-on :is(.button, .transport-controls button, .layer-tab, .chart-tabs button) {
+  background: transparent;
+  color: #302936;
+  border: 1px solid #746879;
+  border-bottom-width: 2px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 11px;
+  transition:
+    background-color 150ms,
+    color 150ms;
+}
+
+.atmosphere-on
+  :is(
+    .button.primary,
+    .transport-controls button[aria-pressed='true'],
+    .layer-tab[aria-pressed='true'],
+    .chart-tabs button[aria-pressed='true']
+  ) {
+  background: #302937;
+  color: #f5f1f8;
+  border-color: #302937;
+  box-shadow: none;
+}
+
+.atmosphere-on .button:disabled {
+  color: #655a6d;
+  background: #ded8e3;
+  border-color: #a79caf;
+}
+
+.atmosphere-on .zoom-steps button[aria-pressed='true'] {
+  border-bottom-color: #675273;
+  box-shadow: none;
+  color: #302637;
+}
+
+.atmosphere-on :is(button, a, input, summary):focus-visible {
+  outline: 2px solid #685372;
+  outline-offset: 3px;
+}
+
+.atmosphere-on .search-box:focus-within {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--ink);
+  outline: none;
+}
+
+.atmosphere-on .search-box input:focus,
+.atmosphere-on .search-box input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  .atmosphere-on
+    :is(.button, .transport-controls button, .layer-tab, .chart-tabs button):hover:not(:disabled) {
+    background: #514358;
+    color: #f8f4fa;
+    box-shadow: none;
+  }
+
+  .atmosphere-on .molecule-item:hover {
+    background: #4a3e52;
+    color: #fff;
+  }
+
+  .atmosphere-on .molecule-item:hover :is(small, .list-number) {
+    color: #ddd2e5;
+  }
+}
+
+/* Grayscale ink anatomy, with one violet trace for the selected mechanism. */
+.atmosphere-on .barrier-svg {
+  --route-ink: #574064;
+}
+
+.atmosphere-on .barrier-svg > rect {
+  fill: #e1dfe4;
+}
+
+.atmosphere-on .barrier-svg [data-layer='endothelium'] {
+  fill: url(#print-screen);
+  stroke: #302a35;
+  stroke-width: 2.3;
+}
+
+.atmosphere-on .barrier-svg [data-layer='pericyte'] {
+  fill: #bab0c2;
+}
+
+.atmosphere-on .barrier-svg > g[fill='#87857c'] {
+  fill: #84758d;
+}
+
+.atmosphere-on .barrier-svg [data-layer='astrocyte'] {
+  stroke: #79707f;
+}
+
+.atmosphere-on .barrier-svg [data-layer='astrocyte'] circle {
+  fill: #e1dce6;
+}
+
+.atmosphere-on .barrier-svg :is(.flow-route, #transport-flow > rect) {
+  stroke: var(--route-ink);
+}
+
+.atmosphere-on .barrier-svg :is(.flow-particle circle, #route-arrow path) {
+  fill: var(--route-ink);
+}
+
+.atmosphere-on .site-footer {
+  border-top: 2px solid #302936;
+  background: #e5e1e8 url('./assets/paper-grain.svg');
+}
+
+.atmosphere-on .site-footer::before {
+  opacity: 0.65;
+  background-color: #e5e1e8;
+}
+
+/* Prototype controls stay separate from the site's visual language. */
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere-on :is(button, .button) {
+    transition: none;
+  }
+}
+
+body.atmosphere-on[data-motion='off'] :is(button, .button) {
+  transition: none;
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .nature-insert {
+    width: 88%;
+    height: 110px;
+  }
+
+  .atmosphere-on .chapter-fragment {
+    height: 82px;
+    background-size: auto 165px;
+    background-position: right 40%;
+  }
+
+  .atmosphere-on .chapter-fragment--transport {
+    height: 48px;
+  }
+
+  .atmosphere-on .comparison-fragment {
+    width: 100px;
+    height: 24px;
+    top: -24px;
+  }
+
+  .atmosphere-on .layer-detail {
+    padding: 18px;
+  }
+
+  .atmosphere-on :is(.section-heading, .zoom-heading)::after {
+    width: 105px;
+  }
+
+  .atmosphere-on :is(.transport-controls button, .layer-tab) {
+    font-size: 10px;
+  }
+}
+
+/* Nature panels and the responsive cover */
+/* White paper, integrated chapter illustrations and photographic diagram fields. */
+body.atmosphere-on {
+  --paper: #fff;
+  --bg: #fff;
+  --panel: #fff;
+  background: #fff;
+}
+
+.atmosphere-on
+  :is(.site-header, .hero, .zoom-chapter, .molecules-section, .barrier-section, .site-footer) {
+  background-color: #fff;
+}
+
+.atmosphere-on .hero {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.atmosphere-on .hero-art img {
+  filter: grayscale(1) contrast(1.55) brightness(1.06);
+}
+
+/* The landscape is part of the cover spread, rather than a separate banner below it. */
+.atmosphere-on .hero .nature-insert {
+  position: absolute;
+  right: 5.5%;
+  bottom: 22px;
+  width: 36%;
+  height: 152px;
+  margin: 0;
+  border: 0;
+  background: none;
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 92%, transparent);
+}
+
+.atmosphere-on .nature-insert::after {
+  background: linear-gradient(0deg, #ffffff3d, transparent 40%);
+}
+
+/* Each heading shares its own composition with the photographic contour. */
+.atmosphere-on .section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36%;
+  column-gap: 26px;
+  row-gap: 12px;
+  align-items: start;
+  padding-bottom: 12px;
+}
+
+.atmosphere-on .section-heading > div:not(.chapter-fragment),
+.atmosphere-on .section-heading > p {
+  grid-column: 1;
+}
+
+.atmosphere-on .section-heading > p {
+  max-width: 520px;
+  margin: 0;
+}
+
+.atmosphere-on .zoom-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36%;
+  gap: 26px;
+  align-items: center;
+}
+
+.atmosphere-on :is(.section-heading, .zoom-heading) > .chapter-fragment {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 100%;
+  height: 140px;
+  margin: -5px 0 0;
+  border: 0;
+  background-size: auto 195px;
+  background-position: right center;
+  filter: saturate(0.35) contrast(1.15);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 95%, transparent);
+}
+
+.atmosphere-on .zoom-heading > .chapter-fragment {
+  grid-row: 1;
+  height: 120px;
+}
+
+.atmosphere-on .comparison-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+}
+
+.atmosphere-on .comparison-heading > div {
+  order: 0;
+  flex: 1 1 auto;
+}
+
+.atmosphere-on .comparison-heading .comparison-fragment {
+  position: static;
+  order: 1;
+  flex: 0 1 200px;
+  height: 64px;
+  background-image: url('./assets/nature-anime-v2.png');
+  background-size: auto 145px;
+  background-position: right 40%;
+  filter: saturate(0.2);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 85%, transparent);
+}
+
+.atmosphere-on .comparison-heading button {
+  order: 2;
+}
+
+/* Nature remains visible through the fields; the diagrams retain their precise contours. */
+.atmosphere-on .zoom-layout {
+  background:
+    linear-gradient(90deg, #ffffffc9, #ffffff99),
+    url('./assets/nature-fragment-concept.png') center 70% / cover;
+}
+
+.atmosphere-on .zoom-drawing {
+  background: none;
+}
+
+.atmosphere-on .zoom-copy {
+  background: #ffffffd9;
+  border-top-color: #b7b5b9;
+}
+
+.atmosphere-on .structure-stage {
+  background:
+    linear-gradient(90deg, #ffffffc9, #ffffffad),
+    url('./assets/nature-fragment-concept.png') center 75% / cover;
+}
+
+.atmosphere-on .barrier-map {
+  background: #fff;
+}
+
+.atmosphere-on .barrier-svg {
+  background:
+    linear-gradient(90deg, #ffffffc9, #ffffff99),
+    url('./assets/nature-fragment-concept.png') center 70% / cover;
+}
+
+.atmosphere-on .barrier-svg > rect {
+  fill: #eeebf0a6;
+}
+
+.atmosphere-on #scatter-panel {
+  background:
+    linear-gradient(#ffffffe0, #ffffffd4),
+    url('./assets/nature-fragment-concept.png') center / cover;
+}
+
+.atmosphere-on .property-card {
+  background:
+    linear-gradient(#fffffff0, #ffffffdb),
+    url('./assets/nature-fragment-concept.png') center / cover;
+}
+
+.atmosphere-on :is(.layer-detail, .smiles-block) {
+  background: #fff;
+}
+
+.atmosphere-on .site-footer {
+  position: relative;
+  background: #fff;
+}
+
+.atmosphere-on .site-footer::before {
+  background-color: #fff;
+}
+
+.atmosphere-on .site-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 30%;
+  background: url('./assets/nature-fragment-concept.png') center / cover;
+  opacity: 0.16;
+  mask-image: linear-gradient(90deg, transparent, #000);
+  pointer-events: none;
+}
+
+@media (max-width: 580px) {
+  /* The mobile cover contains both the headline and the illustration in one field. */
+  .atmosphere-on .hero {
+    height: auto;
+    min-height: 480px;
+    padding: 0 0 175px;
+    margin-bottom: 28px;
+  }
+
+  .atmosphere-on .hero-art {
+    inset: 0;
+    height: 100%;
+  }
+
+  .atmosphere-on .hero-art img {
+    object-position: 62% center;
+    opacity: 0.55;
+  }
+
+  .atmosphere-on .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #ffffffef, #ffffff99 65%, #ffffff1f);
+    pointer-events: none;
+  }
+
+  .atmosphere-on .hero-copy {
+    z-index: 1;
+    width: 100%;
+    padding: 36px 22px 0;
+  }
+
+  .atmosphere-on .hero h1 {
+    font-size: clamp(23px, 7.2vw, 30px);
+    letter-spacing: -0.025em;
+    max-width: 345px;
+  }
+
+  .atmosphere-on .hero-description {
+    max-width: 270px;
+  }
+
+  .atmosphere-on .hero .nature-insert {
+    right: 12px;
+    bottom: 14px;
+    width: 59%;
+    height: 150px;
+    z-index: 1;
+  }
+
+  .atmosphere-on .nature-landscape {
+    transform: scale(1.35);
+    transform-origin: right center;
+  }
+
+  /* Chapter images sit alongside and behind the heading, not in a separate row. */
+  .atmosphere-on :is(.section-heading, .zoom-heading) {
+    position: relative;
+    display: block;
+    padding: 22px 0;
+    overflow: hidden;
+  }
+
+  .atmosphere-on :is(.section-heading, .zoom-heading) > div:not(.chapter-fragment),
+  .atmosphere-on .section-heading > p {
+    position: relative;
+    z-index: 1;
+    max-width: 88%;
+  }
+
+  .atmosphere-on :is(.section-heading, .zoom-heading) h2 {
+    font-size: 25px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 0 #fff;
+  }
+
+  .atmosphere-on .section-heading > p {
+    margin-top: 12px;
+    text-shadow: 1px 1px 0 #fff;
+  }
+
+  .atmosphere-on :is(.section-heading, .zoom-heading) > .chapter-fragment {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 10px;
+    width: 55%;
+    height: 165px;
+    margin: 0;
+    opacity: 0.52;
+    background-size: auto 180px;
+    mask-image: linear-gradient(90deg, transparent, #000 70%);
+  }
+
+  .atmosphere-on .zoom-copy {
+    background: #ffffffbf;
+  }
+
+  .atmosphere-on .comparison-heading {
+    position: relative;
+    overflow: hidden;
+    padding: 18px 12px;
+    gap: 8px;
+  }
+
+  .atmosphere-on .comparison-heading :is(div, button) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .atmosphere-on .comparison-heading .comparison-fragment {
+    position: absolute;
+    right: 0;
+    inset-block: 0;
+    width: 55%;
+    height: 100%;
+    opacity: 0.35;
+  }
+}
+
+/* Panel context */
+.atmosphere-on :is(.comparison-heading > div, .comparison-heading > button) {
+  position: relative;
+  z-index: 1;
+}
+.atmosphere-on
+  :is(
+    .layer-detail,
+    .molecule-note,
+    .zoom-steps,
+    .chart-toolbar,
+    .transport-controls,
+    .catalog-help
+  ) {
+  position: relative;
+}
+
+/* Image and ink compositing */
+/* Connect the existing imagery through shared ink and feathered boundaries. */
+.atmosphere-on .hero-art {
+  z-index: 1;
+  isolation: auto;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.atmosphere-on .hero-copy {
+  z-index: 3;
+}
+
+.atmosphere-on #micro-canvas {
+  mix-blend-mode: normal;
+}
+
+.atmosphere-on .hero .nature-insert {
+  z-index: 0;
+  right: 0;
+  bottom: 65px;
+  width: 46%;
+  height: 220px;
+  mask: url('./assets/photo-blend-v8.svg') center / 100% 100% no-repeat;
+}
+
+.atmosphere-on .hero .nature-insert::before,
+.atmosphere-on .hero .nature-insert .signal-fracture {
+  display: none;
+}
+
+/* Comparison has one heading composition rather than three independent stickers. */
+.atmosphere-on .comparison-heading {
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  padding: 20px 0;
+  background: #fff;
+  color: #29232e;
+  border-top: 2px solid #29232e;
+  border-bottom: 1px solid #d5d0d9;
+}
+
+.atmosphere-on .comparison-heading::before,
+.atmosphere-on .comparison-heading::after,
+.atmosphere-on .catalog-help::after {
+  content: none;
+}
+
+.atmosphere-on .catalog-help {
+  padding-bottom: 0;
+}
+
+.atmosphere-on .comparison-heading > div {
+  max-width: 80%;
+}
+
+.atmosphere-on .comparison-heading :is(.eyebrow, .text-button) {
+  color: #65536f;
+}
+
+.atmosphere-on .comparison-heading .comparison-fragment {
+  display: none;
+}
+
+.atmosphere-on .comparison-heading .text-button {
+  align-self: flex-end;
+  margin-left: auto;
+  background: #ffffffd9;
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .hero .nature-insert {
+    right: 12px;
+    bottom: 14px;
+    width: 59%;
+    height: 150px;
+  }
+
+  .atmosphere-on .hero::before {
+    z-index: 2;
+    bottom: 34%;
+  }
+
+  .atmosphere-on .comparison-heading {
+    min-height: 100px;
+    padding: 18px 0;
+  }
+
+  .atmosphere-on .comparison-heading > div {
+    max-width: 78%;
+  }
+}
+
+/* Transport reading key */
+/* Reading key attached to the diagram: route first, anatomy second. */
+.atmosphere-on .barrier-map .transport-panel {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.2fr);
+  gap: 28px;
+  padding: 22px 0;
+  border-top: 2px solid #302937;
+}
+
+.atmosphere-on .barrier-map .panel-label {
+  margin: 0 0 12px;
+  color: #65536f;
+  font: 10px var(--mono);
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.atmosphere-on .barrier-map .transport-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  border: 0;
+  padding: 0;
+}
+
+.atmosphere-on .barrier-map .transport-controls::before {
+  content: none;
+}
+
+.atmosphere-on .barrier-map .transport-controls button {
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 0;
+  border-left: 2px solid transparent;
+  background: transparent;
+  color: #302937;
+  font-size: 13px;
+  text-align: left;
+  box-shadow: none;
+}
+
+.atmosphere-on .barrier-map .transport-controls button[aria-pressed='true'] {
+  border-left-color: #302937;
+  background: #eeebf0;
+  color: #302937;
+  font-weight: 600;
+}
+
+.atmosphere-on .barrier-map .transport-status {
+  margin: 0 0 8px;
+  color: #65536f;
+  font: 10px/1.5 var(--mono);
+  letter-spacing: 0;
+}
+
+.atmosphere-on .barrier-map .route-direction {
+  margin: 0 0 10px;
+  color: #302937;
+  font: 700 17px/1.5 var(--sans);
+}
+
+.atmosphere-on .barrier-map .route-description {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  color: #4e4654;
+  font-size: 13px;
+  line-height: 1.7;
+  border: 0;
+}
+
+.atmosphere-on .barrier-map .anatomy-picker {
+  padding: 20px 0 6px;
+  border-top: 1px solid #d5d0d9;
+}
+
+.atmosphere-on .barrier-map .layer-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 14px;
+  border: 0;
+  padding: 0;
+}
+
+.atmosphere-on .barrier-map .layer-tab {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 44px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid #d5d0d9;
+  background: transparent;
+  color: #302937;
+  font-size: 12px;
+  text-align: left;
+  box-shadow: none;
+}
+
+.atmosphere-on .barrier-map .layer-tab-index {
+  color: #76647f;
+  font: 10px var(--mono);
+}
+
+.atmosphere-on .barrier-map .layer-tab[aria-pressed='true'] {
+  background: transparent;
+  color: #302937;
+  border-bottom: 2px solid #302937;
+  font-weight: 600;
+}
+
+.atmosphere-on .barrier-map .diagram-caption {
+  margin: 16px 0 0;
+  color: #655d6b;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (hover: hover) {
+  .atmosphere-on .barrier-map :is(.transport-controls button, .layer-tab):hover {
+    background: #eeebf0;
+    color: #302937;
+  }
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .barrier-map .transport-panel {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  .atmosphere-on .barrier-map .transport-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .atmosphere-on .barrier-map .transport-controls button {
+    min-height: 48px;
+    padding: 8px 4px;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+    text-align: center;
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .atmosphere-on .barrier-map .transport-controls button[aria-pressed='true'] {
+    border-bottom-color: #302937;
+  }
+
+  .atmosphere-on .barrier-map .layer-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 12px;
+  }
+}
+
+/* Microscope captions and anatomy labels */
+/* Keep microscope captions and controls in the document flow. */
+.atmosphere-on .zoom-sticky {
+  display: block;
+}
+
+.atmosphere-on .zoom-footer {
+  padding: 12px 20px 16px;
+  background: #fff;
+  border-top: 1px solid #d5d0d9;
+}
+
+.atmosphere-on .zoom-steps {
+  position: static;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  min-height: 48px;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+  transform: none;
+}
+
+.atmosphere-on .zoom-steps::before {
+  content: none;
+}
+
+.atmosphere-on .zoom-steps button,
+.atmosphere-on .zoom-steps button + button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 0;
+  font-size: 12px;
+}
+
+.atmosphere-on .zoom-progress {
+  inset: auto;
+  width: 100%;
+  margin: 14px 0 0;
+}
+
+.atmosphere-on .zoom-note {
+  inset: auto;
+  margin: 10px 0 0;
+  font-size: 11px;
+}
+
+/* Remove the rejected hand illustrations, including their reserved space. */
+.atmosphere-on :is(.layer-detail, .molecule-note)::after {
+  content: none;
+}
+
+.atmosphere-on .layer-detail {
+  padding-bottom: 20px;
+}
+
+.atmosphere-on .molecule-note {
+  padding-right: 0;
+}
+
+.atmosphere-on .barrier-svg .anatomy-index {
+  fill: #302937;
+  font: 18px var(--mono);
+}
+
+.atmosphere-on .barrier-svg .anatomy-name {
+  fill: #433848;
+  font: 18px var(--sans);
+}
+
+.atmosphere-on .barrier-svg > text {
+  font-family: var(--sans);
+}
+
+.atmosphere-on .barrier-svg .anatomy-layer {
+  transition: opacity 160ms;
+}
+
+.atmosphere-on #route-trace {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  margin: 0 0 12px;
+  color: #302937;
+}
+
+.atmosphere-on .barrier-map .route-direction {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.route-trace-line {
+  fill: none;
+  stroke: #65536f;
+  stroke-width: 2;
+}
+
+.route-trace-node {
+  fill: #fff;
+  stroke: #302937;
+  stroke-width: 2;
+}
+
+.route-trace-label {
+  fill: #302937;
+  font: 13px var(--sans);
+}
+
+.route-trace-stop {
+  stroke: #302937;
+  stroke-width: 4;
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .zoom-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 16px;
+  }
+
+  .atmosphere-on .barrier-svg .anatomy-name {
+    display: none;
+  }
+
+  .atmosphere-on .barrier-svg > text {
+    font-size: 34px;
+  }
+
+  .atmosphere-on .barrier-svg .anatomy-index {
+    font-size: 32px;
+  }
+
+  .atmosphere-on #route-trace {
+    min-height: 82px;
+  }
+
+  .route-trace-label {
+    font-size: 18px;
+  }
+}
+
+/* Responsive comparison map */
+/* A full-width plot and a compact key share the existing photographic field. */
+.atmosphere-on #scatter-panel {
+  padding: 24px;
+}
+
+.atmosphere-on #scatter-panel .map-title {
+  margin-bottom: 20px;
+  font: 700 20px/1.3 var(--sans);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 28px;
+  align-items: start;
+}
+
+.map-plot {
+  min-width: 0;
+}
+
+.atmosphere-on #property-chart {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0;
+}
+
+.atmosphere-on #scatter-panel .map-axis-label {
+  margin: 0;
+  padding: 0 0 0 7%;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.atmosphere-on #scatter-panel .map-axis-label--x {
+  padding-top: 8px;
+  text-align: center;
+}
+
+.map-key {
+  min-width: 0;
+  border-left: 1px solid var(--line);
+  padding-left: 20px;
+}
+
+.map-key h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.map-molecules {
+  display: grid;
+  gap: 4px;
+}
+
+.map-empty {
+  grid-column: 1 / -1;
+}
+
+.map-molecule {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 76px;
+  width: 100%;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+}
+
+.map-molecule.is-active {
+  background: #ffffffb3;
+  border-color: var(--ink);
+}
+
+.map-molecule-marker {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--point-color);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.map-molecule-copy {
+  min-width: 0;
+}
+
+.map-molecule-copy strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.map-molecule-copy > span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.atmosphere-on #chart-inspector {
+  margin: 18px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.atmosphere-on #property-chart .chart-point:focus circle {
+  stroke-width: 2;
+}
+
+.atmosphere-on #property-chart .chart-point:is(:hover, :focus-visible) .chart-hit {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+@media (max-width: 820px) {
+  .map-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .map-key {
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .map-molecules {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on #scatter-panel {
+    padding: 18px 14px;
+  }
+
+  .atmosphere-on #scatter-panel .map-title {
+    font-size: 19px;
+    margin-bottom: 16px;
+  }
+
+  .map-molecules {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .map-molecule {
+    min-height: 64px;
+  }
+}
+
+/* Portrait frame and clean dividers */
+/* A transparent portrait from the supplied frame, placed in the card's lower margin. */
+.atmosphere-on :is(.section-heading, .zoom-heading, .comparison-heading)::after,
+.atmosphere-on :is(.chart-toolbar, .zoom-steps, .transport-controls, .site-footer)::before {
+  content: none;
+}
+
+.atmosphere-on .layer-portrait {
+  position: relative;
+  height: 160px;
+  margin: 16px -20px -20px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.atmosphere-on .layer-portrait img {
+  display: block;
+  width: 210px;
+  height: 210px;
+  margin-left: auto;
+  object-fit: contain;
+  opacity: 0.55;
+  transform: translateY(-8px);
+  clip-path: inset(0 0 19% 0);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 81%, transparent 100%);
+}
+
+body:not(.atmosphere-on) .layer-portrait {
+  display: none;
+}
+
+/* GLASS VEIL: outlined panes and a restrained horizontal print echo. */
+.atmosphere-on .brand--veil {
+  display: inline-grid;
+  flex-shrink: 0;
+  gap: 0;
+  align-content: center;
+}
+
+.atmosphere-on .brand--veil img {
+  width: 236px;
+  height: auto;
+  max-width: none;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+@media (max-width: 820px) {
+  .atmosphere-on .site-header {
+    gap: 16px;
+  }
+
+  .atmosphere-on .brand--veil img {
+    width: 204px;
+  }
+}
+
+@media (max-width: 720px) {
+  .atmosphere-on .site-header nav {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .brand--veil img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 580px) {
+  .atmosphere-on .layer-portrait {
+    height: 135px;
+    margin-top: 12px;
+  }
+
+  .atmosphere-on .layer-portrait img {
+    width: 180px;
+    height: 180px;
+    transform: translateY(-6px);
+  }
+}

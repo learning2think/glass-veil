@@ -1,0 +1,13 @@
+# The static site is the source artifact, so include it despite the root dist rule.
+!dist/
+!dist/**
+.qa/
+__pycache__/
+node_modules/
+.pages/
+.source/
+design-baselines/
+branding/
+ARTWORK*.md
+ATMOSPHERE*.md
+DESIGN-BASELINE.md

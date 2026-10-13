@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta
+      name="theme-color"
+      content="#f4f2ed"
+    />
+    <meta
+      name="description"
+      content="GLASS VEIL — строение гематоэнцефалического барьера, свойства молекул и пути переноса."
+    />
+    <title>GLASS VEIL — гематоэнцефалический барьер</title>
+    <link
+      rel="preload"
+      href="./fonts/pt-sans-regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./fonts/pt-sans-bold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="icon"
+      href="./assets/glass-veil-mark.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="stylesheet"
+      href="./styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./atlas.css"
+    />
+    <script
+      src="./catalog.js"
+      defer
+    ></script>
+    <script
+      src="./app.js"
+      defer
+    ></script>
+    <script
+      src="./microscope.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="./atmosphere.css"
+    />
+  </head>
+  <body
+    data-motion="on"
+    class="atmosphere-on"
+  >
+    <a
+      class="skip"
+      href="#molecules"
+    >
+      Перейти к молекулам
+    </a>
+    <header class="site-header">
+      <a
+        class="brand brand--veil"
+        href="#top"
+        aria-label="GLASS VEIL — главная"
+      >
+        <img
+          src="./assets/glass-veil-wordmark.svg"
+          alt="GLASS VEIL"
+          width="236"
+          height="42"
+        />
+      </a>
+      <nav aria-label="Основная навигация">
+        <a href="#zoom">Строение ГЭБ</a>
+        <a href="#molecules">Молекулы</a>
+        <a href="#descriptors">Дескрипторы</a>
+      </nav>
+      <div class="header-tools">
+        <button
+          id="motion-toggle"
+          type="button"
+          aria-pressed="true"
+          aria-label="Анимация включена. Приостановить"
+        >
+          Движение
+          <span>Ⅱ</span>
+        </button>
+      </div>
+    </header>
+    <main id="top">
+      <section
+        class="hero"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-copy">
+          <p class="eyebrow">GLASS VEIL / IN SILICO BBB</p>
+          <h1 id="hero-title">
+            Гематоэнцефалический
+            <br />
+            <span>барьер</span>
+          </h1>
+          <p class="hero-description">
+            Строение сосуда, клеточная мембрана и свойства малых молекул.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="#zoom"
+            >
+              Рассмотреть ГЭБ
+            </a>
+            <a
+              class="text-link"
+              href="#molecules"
+            >
+              Каталог молекул
+            </a>
+          </div>
+          <div class="hero-footnote"><p>Структуры · Дескрипторы · Карта ГЭБ</p></div>
+        </div>
+        <div class="hero-art">
+          <img
+            src="./assets/organic-reticulum-v5.png"
+            alt="Тушевый рисунок на весь разворот: разорванные органические ленты и тонкие волокна. Иллюстрация создана с помощью ИИ."
+            width="1774"
+            height="887"
+            fetchpriority="high"
+          />
+        </div>
+        <div
+          class="nature-insert nature-insert--opening"
+          aria-hidden="true"
+        >
+          <img
+            class="nature-landscape"
+            src="./assets/nature-anime-v2.png"
+            alt=""
+          />
+          <span class="signal-fracture"></span>
+        </div>
+      </section>
+      <section
+        class="zoom-chapter"
+        id="zoom"
+        aria-labelledby="zoom-title"
+      >
+        <div class="zoom-sticky">
+          <div class="zoom-heading">
+            <div>
+              <p class="eyebrow">01 / СТРОЕНИЕ ГЭБ</p>
+              <h2 id="zoom-title">От сосуда к молекуле</h2>
+            </div>
+            <div
+              class="chapter-fragment chapter-fragment--zoom"
+              aria-hidden="true"
+            ></div>
+          </div>
+          <div class="zoom-layout">
+            <div class="zoom-drawing">
+              <canvas
+                id="micro-canvas"
+                role="img"
+                aria-label="Объёмная учебная схема капилляра. Прокрутка приближает стенку сосуда, клеточную мембрану и молекулу."
+              ></canvas>
+              <div class="zoom-frame-caption">
+                <span id="zoom-frame-level">КАПИЛЛЯР</span>
+                <span>СХЕМАТИЧЕСКИЙ РАЗРЕЗ</span>
+              </div>
+            </div>
+            <aside
+              class="zoom-copy"
+              aria-live="polite"
+            >
+              <span id="zoom-number">01</span>
+              <h3 id="zoom-name">Мозговой капилляр</h3>
+              <p id="zoom-description">
+                Эндотелий отделяет просвет сосуда от ткани мозга. Снаружи его поддерживают базальная
+                мембрана, перициты и ножки астроцитов.
+              </p>
+              <p
+                class="zoom-focus"
+                id="zoom-focus"
+              >
+                Следующий уровень — участок сосудистой стенки.
+              </p>
+            </aside>
+            <div class="zoom-footer">
+              <div
+                class="zoom-steps"
+                role="group"
+                aria-label="Уровень приближения"
+              >
+                <button
+                  type="button"
+                  data-zoom-level="0"
+                  aria-pressed="true"
+                >
+                  <span>01</span>
+                  Капилляр
+                </button>
+                <button
+                  type="button"
+                  data-zoom-level="1"
+                  aria-pressed="false"
+                >
+                  <span>02</span>
+                  Эндотелий
+                </button>
+                <button
+                  type="button"
+                  data-zoom-level="2"
+                  aria-pressed="false"
+                >
+                  <span>03</span>
+                  Мембрана
+                </button>
+                <button
+                  type="button"
+                  data-zoom-level="3"
+                  aria-pressed="false"
+                >
+                  <span>04</span>
+                  Молекула
+                </button>
+              </div>
+              <div
+                class="zoom-progress"
+                aria-hidden="true"
+              >
+                <span id="zoom-progress-fill"></span>
+              </div>
+              <p class="zoom-note">
+                Учебные рисунки. Масштаб условный.
+                <a
+                  id="zoom-source"
+                  href="https://doi.org/10.1083/jcb.34.1.207"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Reese &amp; Karnovsky, 1967
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section molecules-section"
+        id="molecules"
+        aria-labelledby="molecules-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / МОЛЕКУЛЫ</p>
+            <h2 id="molecules-title">Каталог молекул</h2>
+          </div>
+          <div
+            class="chapter-fragment chapter-fragment--catalog"
+            aria-hidden="true"
+          >
+            <span class="signal-fracture"></span>
+          </div>
+        </div>
+        <div class="explorer-toolbar">
+          <label class="search-box">
+            <svg
+              class="search-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle
+                cx="10.5"
+                cy="10.5"
+                r="6.5"
+              />
+              <path d="m15.5 15.5 5 5" />
+            </svg>
+            <input
+              id="search"
+              type="search"
+              placeholder="Название или SMILES…"
+              aria-label="Поиск по названию или SMILES из каталога"
+            />
+          </label>
+        </div>
+        <div class="explorer">
+          <aside
+            class="catalog-panel"
+            aria-label="Каталог молекул"
+          >
+            <div
+              id="molecule-list"
+              class="molecule-list"
+            ></div>
+            <p class="catalog-help">
+              Структуры из каталога проекта.
+              <br />
+              Произвольный SMILES пока не рассчитывается.
+            </p>
+          </aside>
+          <article
+            class="dossier"
+            aria-labelledby="molecule-name"
+          >
+            <div class="dossier-top">
+              <div>
+                <p
+                  class="eyebrow"
+                  id="molecule-topic"
+                ></p>
+                <h3 id="molecule-name"></h3>
+                <p
+                  class="molecule-subtitle"
+                  id="molecule-subtitle"
+                ></p>
+              </div>
+            </div>
+            <div class="dossier-spread">
+              <div class="structure-stage">
+                <span class="structure-label">СТРУКТУРНАЯ ФОРМУЛА</span>
+                <img
+                  id="structure"
+                  src="./structures/caffeine.svg"
+                  alt="Структурная формула кофеина"
+                  width="520"
+                  height="300"
+                />
+                <span class="structure-label structure-label-bottom">C · N · O</span>
+              </div>
+              <div class="descriptor-panel">
+                <div
+                  class="descriptor-grid"
+                  id="descriptors"
+                ></div>
+                <div
+                  class="descriptor-explanation"
+                  id="descriptor-explanation"
+                  aria-live="polite"
+                ></div>
+                <details
+                  class="descriptor-reading"
+                  id="field-notes"
+                >
+                  <summary>О дескрипторах</summary>
+                  <p>
+                    logP относится к нейтральной форме; logD — к распределению форм при заданном pH.
+                    MW, logP и TPSA помогают сравнить структуры, но не определяют перенос через ГЭБ
+                    сами по себе.
+                  </p>
+                  <a
+                    href="https://goldbook.iupac.org/terms/view/P04440"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Терминология IUPAC
+                  </a>
+                </details>
+              </div>
+            </div>
+            <div class="smiles-block">
+              <div>
+                <span class="label">SMILES / СТРУКТУРА ИЗ РЕЕСТРА</span>
+                <button
+                  id="copy-smiles"
+                  type="button"
+                >
+                  Копировать
+                </button>
+              </div>
+              <code id="smiles"></code>
+            </div>
+            <div class="molecule-note">
+              <span aria-hidden="true">↳</span>
+              <p id="molecule-note"></p>
+            </div>
+            <div class="dossier-actions">
+              <button
+                class="button primary compact"
+                id="add-compare"
+                type="button"
+              >
+                Добавить к сравнению
+                <span aria-hidden="true">＋</span>
+              </button>
+              <a
+                class="text-link"
+                id="pubchem-link"
+                href="https://pubchem.ncbi.nlm.nih.gov/compound/2519"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PubChem
+              </a>
+            </div>
+          </article>
+        </div>
+        <section
+          class="comparison"
+          aria-labelledby="comparison-title"
+        >
+          <div class="comparison-heading">
+            <span
+              class="comparison-fragment"
+              aria-hidden="true"
+            ></span>
+            <div>
+              <p class="eyebrow">ДЕСКРИПТОРЫ</p>
+              <h3 id="comparison-title">Сравнение молекул</h3>
+            </div>
+            <button
+              id="clear-compare"
+              class="text-button"
+              type="button"
+            >
+              Сбросить
+            </button>
+          </div>
+          <div
+            class="compare-chips"
+            id="compare-chips"
+          ></div>
+          <div class="comparison-body">
+            <div class="chart-toolbar">
+              <div>
+                <span class="label">ОБЩИЕ ШКАЛЫ ДЛЯ ВЫБРАННЫХ СТРУКТУР</span>
+                <p id="chart-mode-description">
+                  Название рядом с полосой указывает вещество, длина — значение свойства.
+                </p>
+              </div>
+              <div
+                class="chart-tabs"
+                role="group"
+                aria-label="Вид графика"
+              >
+                <button
+                  type="button"
+                  id="bars-mode"
+                  aria-pressed="true"
+                >
+                  Полосы
+                </button>
+                <button
+                  type="button"
+                  id="map-mode"
+                  aria-pressed="false"
+                >
+                  Карта
+                </button>
+              </div>
+            </div>
+            <div
+              id="property-bars"
+              class="property-bars"
+            ></div>
+            <div
+              class="property-map"
+              id="scatter-panel"
+              hidden
+            >
+              <div class="map-title">
+                <span>logP и полярная поверхность</span>
+              </div>
+              <div class="map-layout">
+                <div class="map-plot">
+                  <p class="map-axis-label">Полярная поверхность · TPSA, Å²</p>
+                  <svg
+                    id="property-chart"
+                    viewBox="0 0 760 320"
+                    role="group"
+                    aria-label="Сопоставление logP и TPSA выбранных молекул"
+                  ></svg>
+                  <p class="map-axis-label map-axis-label--x">
+                    Липофильность нейтральной формы · Crippen logP
+                  </p>
+                </div>
+                <aside
+                  class="map-key"
+                  aria-label="Молекулы на карте"
+                >
+                  <h4>Молекулы на карте</h4>
+                  <div
+                    id="map-molecules"
+                    class="map-molecules"
+                  ></div>
+                </aside>
+              </div>
+              <p
+                id="chart-inspector"
+                aria-live="polite"
+              >
+                Выбери точку, чтобы прочитать её свойства.
+              </p>
+            </div>
+            <p
+              class="comparison-insight"
+              id="comparison-insight"
+              aria-live="polite"
+            ></p>
+            <p class="chart-disclaimer">
+              Шкалы служат для сравнения дескрипторов. Их границы не являются порогами BBB+ / BBB−.
+            </p>
+            <details class="raw-values">
+              <summary>
+                Точные значения / таблица
+                <span aria-hidden="true">＋</span>
+              </summary>
+              <div class="table-scroll">
+                <table id="comparison-table">
+                  <caption class="sr-only">Сравнение молекулярных дескрипторов</caption>
+                  <thead></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="barrier-section"
+        id="barrier"
+        aria-labelledby="barrier-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / КОМПОНЕНТЫ ГЭБ</p>
+            <h2 id="barrier-title">Схема и пути переноса</h2>
+          </div>
+          <div
+            class="chapter-fragment chapter-fragment--transport"
+            aria-hidden="true"
+          >
+            <span class="signal-fracture"></span>
+          </div>
+        </div>
+        <div class="barrier-layout">
+          <div class="barrier-map">
+            <div class="diagram-labels">
+              <span>НЕЙРОВАСКУЛЯРНАЯ ЕДИНИЦА</span>
+              <span>УЧЕБНАЯ СХЕМА</span>
+            </div>
+            <svg
+              viewBox="0 0 820 490"
+              class="barrier-svg"
+              role="img"
+              aria-labelledby="diagram-title diagram-desc"
+            >
+              <title id="diagram-title">Стенка мозгового капилляра и пути переноса</title>
+              <desc id="diagram-desc">
+                Кровь расположена сверху, ткань мозга снизу. Между ними один слой эндотелиальных
+                клеток с плотными контактами и базальная мембрана. Выбранный путь показан толстой
+                стрелкой.
+              </desc>
+              <defs>
+                <pattern
+                  id="print-screen"
+                  width="5"
+                  height="5"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    width="5"
+                    height="5"
+                    fill="#d8d5db"
+                  />
+                  <circle
+                    cx="1"
+                    cy="1"
+                    r="0.65"
+                    fill="#56584d"
+                    opacity="0.32"
+                  />
+                </pattern>
+                <pattern
+                  id="hatch"
+                  width="7"
+                  height="7"
+                  patternUnits="userSpaceOnUse"
+                  patternTransform="rotate(35)"
+                >
+                  <line
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="7"
+                    stroke="#888"
+                    stroke-width="1"
+                  />
+                </pattern>
+                <marker
+                  id="route-arrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="5"
+                  markerHeight="5"
+                  orient="auto"
+                >
+                  <path
+                    d="M0 0L10 5L0 10Z"
+                    fill="#171717"
+                  />
+                </marker>
+              </defs>
+              <rect
+                x="24"
+                y="50"
+                width="772"
+                height="180"
+                fill="#e9e8e2"
+              />
+              <text
+                x="47"
+                y="88"
+                fill="#292929"
+                font-size="25"
+                font-family="Arial"
+              >
+                КРОВЬ
+              </text>
+              <text
+                x="47"
+                y="415"
+                fill="#292929"
+                font-size="25"
+                font-family="Arial"
+              >
+                ТКАНЬ МОЗГА
+              </text>
+              <defs>
+                <clipPath id="blood-zone">
+                  <rect
+                    x="24"
+                    y="100"
+                    width="772"
+                    height="105"
+                  />
+                </clipPath>
+              </defs>
+              <g
+                clip-path="url(#blood-zone)"
+                fill="none"
+                stroke="#aaa"
+                stroke-width="1.5"
+              >
+                <g>
+                  <ellipse
+                    cx="0"
+                    cy="145"
+                    rx="29"
+                    ry="14"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="145"
+                    rx="12"
+                    ry="6"
+                  />
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    from="-40 0"
+                    to="840 0"
+                    dur="14s"
+                    begin="0s"
+                    repeatCount="indefinite"
+                  />
+                </g>
+                <g>
+                  <ellipse
+                    cx="0"
+                    cy="180"
+                    rx="29"
+                    ry="14"
+                  />
+                  <ellipse
+                    cx="0"
+                    cy="180"
+                    rx="12"
+                    ry="6"
+                  />
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    from="-40 0"
+                    to="840 0"
+                    dur="14s"
+                    begin="-7s"
+                    repeatCount="indefinite"
+                  />
+                </g>
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="endothelium"
+                fill="#d7d5cb"
+                stroke="#252525"
+                stroke-width="2"
+              >
+                <path d="M24 240Q216 236 410 240T796 240V303Q604 307 410 303T24 303Z" />
+                <path
+                  d="M180 240V303 M339 240V303 M498 240V303 M657 240V303"
+                  fill="none"
+                  stroke-width="1.2"
+                />
+              </g>
+              <g fill="#87857c">
+                <ellipse
+                  cx="100"
+                  cy="274"
+                  rx="25"
+                  ry="9"
+                />
+                <ellipse
+                  cx="258"
+                  cy="274"
+                  rx="25"
+                  ry="9"
+                />
+                <ellipse
+                  cx="418"
+                  cy="274"
+                  rx="25"
+                  ry="9"
+                />
+                <ellipse
+                  cx="578"
+                  cy="274"
+                  rx="25"
+                  ry="9"
+                />
+                <ellipse
+                  cx="730"
+                  cy="274"
+                  rx="25"
+                  ry="9"
+                />
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="junctions"
+                stroke="#171717"
+                stroke-width="6"
+              >
+                <path d="M180 241V263 M339 241V263 M498 241V263 M657 241V263" />
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="membrane"
+              >
+                <rect
+                  x="24"
+                  y="312"
+                  width="772"
+                  height="9"
+                  fill="url(#hatch)"
+                  stroke="#444"
+                  stroke-width="1"
+                />
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="pericyte"
+                fill="#bbb8ac"
+                stroke="#444"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M465 332Q530 318 580 335Q622 325 668 334Q620 348 580 344Q516 332 465 332Z"
+                />
+                <ellipse
+                  cx="578"
+                  cy="336"
+                  rx="11"
+                  ry="4"
+                  fill="#666"
+                />
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="astrocyte"
+                fill="none"
+                stroke="#7c7a70"
+                stroke-linecap="round"
+              >
+                <path
+                  d="M711 416Q704 391 713 370T733 345 M711 416Q701 383 688 370T674 344 M707 398Q682 401 664 390 M717 381Q739 385 754 375"
+                  stroke-width="3"
+                />
+                <path
+                  d="M717 336H764 M658 336H689"
+                  stroke-width="7"
+                />
+                <circle
+                  cx="711"
+                  cy="416"
+                  r="13"
+                  fill="#e1dfd5"
+                  stroke-width="2"
+                />
+              </g>
+              <g
+                class="anatomy-layer"
+                data-layer="transporters"
+              >
+                <rect
+                  x="453"
+                  y="230"
+                  width="18"
+                  height="29"
+                  rx="5"
+                  fill="#f8f7f2"
+                  stroke="#171717"
+                  stroke-width="2.5"
+                />
+                <path
+                  d="M458 233V253 M466 233V253"
+                  stroke="#171717"
+                  stroke-width="2"
+                />
+              </g>
+              <g
+                font-family="Arial"
+                font-size="20"
+                fill="#555"
+              >
+                <text
+                  x="45"
+                  y="225"
+                >
+                  <tspan class="anatomy-index">01</tspan>
+                  <tspan class="anatomy-name">Эндотелий</tspan>
+                </text>
+                <text
+                  x="502"
+                  y="222"
+                >
+                  <tspan class="anatomy-index">02</tspan>
+                  <tspan class="anatomy-name">Плотный контакт</tspan>
+                </text>
+                <path
+                  d="M555 225L501 240"
+                  stroke="#777"
+                  fill="none"
+                />
+                <text
+                  x="43"
+                  y="349"
+                >
+                  <tspan class="anatomy-index">04</tspan>
+                  <tspan class="anatomy-name">Базальная мембрана</tspan>
+                </text>
+                <text
+                  x="530"
+                  y="375"
+                >
+                  <tspan class="anatomy-index">03</tspan>
+                  <tspan class="anatomy-name">Перицит</tspan>
+                </text>
+                <path
+                  d="M577 361V347"
+                  stroke="#777"
+                />
+                <text
+                  x="600"
+                  y="459"
+                >
+                  <tspan class="anatomy-index">05</tspan>
+                  <tspan class="anatomy-name">Ножки астроцита</tspan>
+                </text>
+                <text
+                  x="520"
+                  y="145"
+                >
+                  <tspan class="anatomy-index">06</tspan>
+                  <tspan class="anatomy-name">Транспортёр</tspan>
+                </text>
+                <path
+                  d="M520 152L487 190L471 230"
+                  stroke="#777"
+                  fill="none"
+                />
+              </g>
+              <g
+                id="transport-flow"
+                aria-hidden="true"
+              ></g>
+            </svg>
+            <div class="transport-panel">
+              <div class="route-picker">
+                <p class="panel-label">Путь переноса</p>
+                <div
+                  class="transport-controls"
+                  role="group"
+                  aria-label="Выбрать путь переноса"
+                >
+                  <button
+                    type="button"
+                    data-route="passive"
+                    aria-pressed="true"
+                  >
+                    Через клетку
+                  </button>
+                  <button
+                    type="button"
+                    data-route="efflux"
+                    aria-pressed="false"
+                  >
+                    Эффлюкс
+                  </button>
+                  <button
+                    type="button"
+                    data-route="junction"
+                    aria-pressed="false"
+                  >
+                    Между клетками
+                  </button>
+                </div>
+              </div>
+              <div class="route-reading">
+                <p
+                  class="transport-status"
+                  id="transport-status"
+                  role="status"
+                >
+                  Условное движение частиц
+                </p>
+                <svg
+                  id="route-trace"
+                  viewBox="0 0 420 100"
+                  role="img"
+                  aria-label="Направление выбранного пути переноса"
+                ></svg>
+                <p
+                  class="route-direction"
+                  id="route-direction"
+                  aria-hidden="true"
+                ></p>
+                <p
+                  class="route-description"
+                  id="route-description"
+                  aria-live="polite"
+                ></p>
+              </div>
+            </div>
+            <div class="anatomy-picker">
+              <p class="panel-label">Элементы на схеме</p>
+              <div
+                class="layer-tabs"
+                id="layer-tabs"
+                role="group"
+                aria-label="Выбрать элемент ГЭБ"
+              ></div>
+            </div>
+            <p class="diagram-caption">
+              Развёрнутый участок стенки сосуда. Масштаб и скорость условные. Движение показывает
+              механизм, а не прогноз для выбранной молекулы.
+            </p>
+          </div>
+          <article
+            class="layer-detail"
+            aria-live="polite"
+          >
+            <span
+              class="layer-index"
+              id="layer-index"
+            ></span>
+            <p
+              class="eyebrow"
+              id="layer-english"
+            ></p>
+            <h3 id="layer-title"></h3>
+            <p id="layer-description"></p>
+            <div class="layer-chemistry">
+              <span class="label">ЧТО ЭТО ЗНАЧИТ ДЛЯ МОЛЕКУЛЫ</span>
+              <p id="layer-chemistry"></p>
+            </div>
+            <a
+              id="layer-source"
+              href="https://doi.org/10.1083/jcb.34.1.207"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-link"
+            >
+              Reese &amp; Karnovsky, 1967
+            </a>
+            <div
+              class="layer-portrait"
+              aria-hidden="true"
+            >
+              <img
+                src="./assets/frame-contour-v12.png"
+                alt=""
+                width="1254"
+                height="1254"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a
+        class="brand brand--veil"
+        href="#top"
+        aria-label="GLASS VEIL — главная"
+      >
+        <img
+          src="./assets/glass-veil-wordmark.svg"
+          alt="GLASS VEIL"
+          width="236"
+          height="42"
+        />
+      </a>
+      <p>
+        Исследовательский справочник.
+        <br />
+        Дескрипторы не являются экспериментальным результатом или рекомендацией лечения.
+      </p>
+      <span>IN SILICO BBB / FIELD GUIDE</span>
+    </footer>
+    <div
+      id="toast"
+      role="status"
+      aria-live="polite"
+      class="toast"
+      hidden
+    ></div>
+    <noscript>
+      <p class="noscript">
+        Для каталога и интерактивной схемы включите JavaScript.
+        <a href="https://pubchem.ncbi.nlm.nih.gov/">Открыть PubChem</a>
+        .
+      </p>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "glass-veil",
+  "private": true,
+  "description": "GLASS VEIL — static cheminformatics companion to In Silico BBB",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "preview": "node serve.mjs",
+    "check": "node scripts/check-site.mjs",
+    "build": "node scripts/build-site.mjs",
+    "export:source": "node scripts/export-source.mjs",
+    "format": "prettier --ignore-path .prettierignore --write \"dist/*.{html,css,js}\" \"scripts/*.mjs\" serve.mjs",
+    "format:check": "prettier --ignore-path .prettierignore --check \"dist/*.{html,css,js}\" \"scripts/*.mjs\" serve.mjs"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}

@@ -1,0 +1,16 @@
+GLASS VEIL — In Silico BBB
+
+Code and scientific diagrams: MIT; see LICENSE.txt.
+PT Sans Regular and Bold: ParaType, SIL Open Font License 1.1;
+see fonts/OFL-PT-Sans.txt. The logo uses outlined PT Sans lettering.
+
+The organic cover and nature collage assets were generated with ImageGen
+using visual references. Original manga pages and music tracks are not included.
+
+frame-contour-v12.png was generated from a user-supplied anime frame.
+The source frame's redistribution permission has not been documented.
+This notice does not grant rights to that source frame or its character.
+
+Calculated molecular descriptors and structural drawings are produced locally
+with RDKit from registry SMILES. PubChem links identify records; the displayed
+descriptor values are not a download of PubChem experimental data.

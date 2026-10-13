@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>GLASS VEIL — знак прозрачной границы</title>
+  <g fill="#232126" fill-opacity="0.06" stroke="#232126" stroke-width="2.6" stroke-linejoin="round">
+    <path d="M13 8L29 5L23 31L27 55L9 48L16 25Z" />
+    <path d="M38 8L55 15L48 56L33 53L40 32Z" />
+  </g>
+  <circle cx="33" cy="30" r="3.2" fill="none" stroke="#232126" stroke-width="1.8" />
+</svg>
