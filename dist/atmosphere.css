@@ -1619,6 +1619,90 @@ body:not(.atmosphere-on) .layer-portrait {
   background-size: 5px 5px;
 }
 
+.atmosphere-on .descriptor > span {
+  display: table;
+  padding: 2px 4px;
+  margin-left: -4px;
+  color: var(--ink);
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+.atmosphere-on .descriptor[aria-pressed='true'] > span {
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (max-width: 360px) {
+  .atmosphere-on .descriptor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .atmosphere-on .descriptor[data-metric='mw'] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Explanations share the same ink margin, with texture kept away from the text. */
+.atmosphere-on :is(.descriptor-explanation, .layer-chemistry, .molecule-note) {
+  position: relative;
+  display: block;
+  border-left: 0;
+  padding-left: 20px;
+}
+
+.atmosphere-on :is(.descriptor-explanation, .layer-chemistry, .molecule-note)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 3px;
+  height: 32px;
+  background: var(--ink);
+  clip-path: polygon(44% 0, 88% 12%, 69% 39%, 100% 61%, 59% 90%, 29% 100%, 8% 72%, 24% 42%, 0 18%);
+  transform: rotate(5deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.atmosphere-on :is(.descriptor-explanation, .layer-chemistry, .molecule-note)::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 4px;
+  width: 6px;
+  height: 32px;
+  background: repeating-linear-gradient(135deg, #23212630 0 1px, transparent 1px 4px);
+  mask-image: linear-gradient(#000, transparent);
+  pointer-events: none;
+}
+
+.atmosphere-on .layer-chemistry::before,
+.atmosphere-on .layer-chemistry::after {
+  top: 18px;
+}
+
+.atmosphere-on .descriptor-explanation,
+.atmosphere-on .layer-chemistry p {
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.atmosphere-on .descriptor-explanation strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.atmosphere-on .layer-chemistry .label {
+  font-size: 10px;
+  letter-spacing: 0.07em;
+}
+
+.atmosphere-on .molecule-note > p {
+  margin: 0;
+}
+
 .atmosphere-on .smiles-block {
   border-block: 1px solid #2321264d;
 }
