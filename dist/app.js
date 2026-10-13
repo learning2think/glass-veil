@@ -547,7 +547,6 @@
           fill: 'none',
           stroke: colors[i],
           'stroke-width': 1.5,
-          'stroke-dasharray': '24 3 7 3',
           'pointer-events': 'none',
           class: 'chart-selection',
           'aria-hidden': 'true',
