@@ -176,28 +176,61 @@
           ctx.restore();
         }
         if (stroke) {
-          ctx.beginPath();
-          p.forEach((n, i) => (i ? ctx.lineTo(n.x, n.y) : ctx.moveTo(n.x, n.y)));
-          ctx.closePath();
-          ctx.strokeStyle = printTone(stroke);
-          ctx.lineWidth = lineWidth;
-          ctx.stroke();
+          strokeContour(p, stroke, lineWidth, true);
         }
       },
     });
+  }
+  function strokeContour(points, color, weight, closed = false, dash = []) {
+    ctx.save();
+    ctx.strokeStyle = printTone(color);
+    ctx.lineWidth = weight;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.setLineDash(dash);
+    ctx.beginPath();
+    points.forEach((point, i) => (i ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y)));
+    if (closed) ctx.closePath();
+    ctx.stroke();
+
+    // Pen pressure follows the original contour; geometry and bond counts stay intact.
+    if (atmosphere && !dash.length && weight >= 0.8 && points.length > 1) {
+      const start = (points.length - 1) * 0.55;
+      const end = (points.length - 1) * 0.8;
+      const sample = (position) => {
+        const index = Math.floor(position);
+        const a = points[index];
+        const b = points[Math.min(index + 1, points.length - 1)];
+        return { x: mix(a.x, b.x, position - index), y: mix(a.y, b.y, position - index) };
+      };
+      const segment = [
+        sample(start),
+        ...points.slice(Math.ceil(start), Math.floor(end) + 1),
+        sample(end),
+      ];
+      const length = segment
+        .slice(1)
+        .reduce(
+          (total, point, i) => total + Math.hypot(point.x - segment[i].x, point.y - segment[i].y),
+          0,
+        );
+      if (length > 18) {
+        ctx.lineWidth = weight * 1.3;
+        ctx.beginPath();
+        segment.forEach((point, i) =>
+          i ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y),
+        );
+        ctx.stroke();
+      }
+    }
+    ctx.restore();
   }
   function line(points, color = '#222', weight = 1.5, dash = []) {
     const p = points.map(project);
     queue.push({
       z: p.reduce((sum, n) => sum + n.z, 0) / p.length,
       draw() {
-        ctx.beginPath();
-        p.forEach((n, i) => (i ? ctx.lineTo(n.x, n.y) : ctx.moveTo(n.x, n.y)));
-        ctx.strokeStyle = printTone(color);
-        ctx.lineWidth = weight;
-        ctx.setLineDash(dash);
-        ctx.stroke();
-        ctx.setLineDash([]);
+        strokeContour(p, color, weight, false, dash);
       },
     });
   }
@@ -228,7 +261,7 @@
         ctx.lineWidth = 1.15;
         ctx.stroke();
         if (label && r > 7) {
-          ctx.font = `600 ${Math.max(9, Math.min(15, r * 0.95))}px Arial`;
+          ctx.font = `700 ${Math.max(9, Math.min(15, r * 0.95))}px "PT Sans", Arial`;
           ctx.fillStyle = '#181818';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';

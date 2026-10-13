@@ -489,6 +489,7 @@
     }
     add('path', {
       d: `M${left} ${top}V${bottom}H${right}`,
+      class: 'chart-axis',
       stroke: '#777777',
       'stroke-width': 1.5,
       fill: 'none',
@@ -536,6 +537,24 @@
         role: 'button',
         'aria-label': `${m.name}: logP ${number(m.logp)}, TPSA ${number(m.tpsa)} Å². Открыть карточку.`,
       });
+      group.style.setProperty('--point-color', colors[i]);
+      add(
+        'circle',
+        {
+          cx: badge.x,
+          cy: badge.y,
+          r: markerRadius + 6,
+          fill: 'none',
+          stroke: colors[i],
+          'stroke-width': 1.5,
+          'stroke-dasharray': '24 3 7 3',
+          'pointer-events': 'none',
+          class: 'chart-selection',
+          'aria-hidden': 'true',
+        },
+        undefined,
+        group,
+      );
       add(
         'circle',
         {
@@ -626,6 +645,8 @@
         $('chart-inspector').textContent =
           `${m.name} · logP ${number(m.logp)} · TPSA ${number(m.tpsa)} Å² · MW ${number(m.mw)} г/моль`;
         for (const button of key.children) button.classList.toggle('is-active', button === entry);
+        for (const pointGroup of svg.querySelectorAll('.chart-point'))
+          pointGroup.classList.toggle('is-active', pointGroup === group);
       };
       const open = () => {
         selected = m.id;

@@ -1671,6 +1671,77 @@ body.atmosphere-on[data-motion='off']
   }
 }
 
+/* Interior spreads keep the same paper, pressure and printed reading order. */
+.atmosphere-on .dossier-top {
+  padding-bottom: 15px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #23212638;
+}
+
+.atmosphere-on .molecule-subtitle {
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.atmosphere-on .descriptor[aria-pressed='true'] {
+  background-image: radial-gradient(#30293724 0.45px, transparent 0.8px);
+  background-size: 5px 5px;
+}
+
+.atmosphere-on .smiles-block {
+  border-block: 1px solid #2321264d;
+}
+
+.atmosphere-on .zoom-copy > span {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #302937;
+  font-weight: 700;
+}
+
+.atmosphere-on #property-chart .chart-axis {
+  stroke: #302937;
+  stroke-width: 1.7;
+  stroke-linecap: square;
+}
+
+.atmosphere-on #property-chart .chart-selection {
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+.atmosphere-on #property-chart .chart-point:is(.is-active, :focus-visible) .chart-selection {
+  opacity: 0.85;
+  stroke: var(--point-color);
+  stroke-width: 1.5;
+}
+
+.atmosphere-on .map-molecule {
+  position: relative;
+}
+
+.atmosphere-on .map-molecule.is-active::after {
+  content: '';
+  position: absolute;
+  inset: auto 8px 5px;
+  height: 1px;
+  background: linear-gradient(90deg, #30293788 0 61%, transparent 61% 66%, #30293788 66%);
+  pointer-events: none;
+}
+
+.atmosphere-on .raw-values th {
+  border-bottom: 2px solid #302937;
+}
+
+body.atmosphere-on[data-motion='off'] #property-chart .chart-selection {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere-on #property-chart .chart-selection {
+    transition: none;
+  }
+}
+
 /* GLASS VEIL: outlined panes and a restrained horizontal print echo. */
 .atmosphere-on .brand--veil {
   display: inline-grid;
