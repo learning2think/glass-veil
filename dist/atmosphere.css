@@ -1742,6 +1742,133 @@ body.atmosphere-on[data-motion='off'] #property-chart .chart-selection {
   }
 }
 
+/* Anatomy reading and folded margin notes. */
+.atmosphere-on .barrier-svg .anatomy-caption {
+  cursor: pointer;
+  transition: fill 120ms ease-out;
+}
+
+.atmosphere-on .barrier-svg .anatomy-caption.is-active {
+  fill: #232126;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.atmosphere-on .barrier-svg .anatomy-layer.active {
+  stroke: #232126;
+}
+
+.atmosphere-on .barrier-svg [data-layer='membrane'].active rect {
+  stroke: #232126;
+  stroke-width: 1.8;
+}
+
+.atmosphere-on .barrier-svg [data-layer='transporters'].active rect {
+  fill: #232126;
+  stroke: #232126;
+}
+
+.atmosphere-on .barrier-svg [data-layer='transporters'].active path {
+  stroke: #fff;
+}
+
+.atmosphere-on :is(.descriptor-reading, .raw-values) {
+  border: 0;
+  border-block: 1px solid #2321264d;
+  background: #fff;
+}
+
+.atmosphere-on :is(.descriptor-reading, .raw-values) summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--ink);
+  font: 12px/1.5 var(--sans);
+  list-style: none;
+  cursor: pointer;
+}
+
+.atmosphere-on :is(.descriptor-reading, .raw-values) summary::marker {
+  content: '';
+}
+
+.atmosphere-on :is(.descriptor-reading, .raw-values) summary::-webkit-details-marker {
+  display: none;
+}
+
+.atmosphere-on :is(.descriptor-reading, .raw-values) .fold-mark {
+  display: block;
+  position: relative;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+  transform: none;
+}
+
+.atmosphere-on .fold-mark::before,
+.atmosphere-on .fold-mark::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  pointer-events: none;
+}
+
+.atmosphere-on .fold-mark::before {
+  width: 12px;
+  height: 1px;
+  top: 6px;
+  left: 1px;
+}
+
+.atmosphere-on .fold-mark::after {
+  width: 1px;
+  height: 12px;
+  left: 6px;
+  top: 1px;
+  transition: transform 120ms ease-out;
+}
+
+.atmosphere-on details[open] .fold-mark::after {
+  transform: scaleY(0);
+}
+
+.atmosphere-on .descriptor-reading[open] {
+  border-left: 2px solid #302937;
+  padding-left: 13px;
+}
+
+.atmosphere-on .descriptor-reading p {
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 0 0 10px;
+}
+
+.atmosphere-on .descriptor-reading a {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.atmosphere-on .raw-values .table-scroll {
+  padding-inline: 0;
+}
+
+body.atmosphere-on[data-motion='off'] .anatomy-caption,
+body.atmosphere-on[data-motion='off'] .fold-mark::after {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere-on .anatomy-caption,
+  .atmosphere-on .fold-mark::after {
+    transition: none;
+  }
+}
+
 /* GLASS VEIL: outlined panes and a restrained horizontal print echo. */
 .atmosphere-on .brand--veil {
   display: inline-grid;

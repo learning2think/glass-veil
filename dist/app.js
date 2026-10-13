@@ -94,7 +94,7 @@
       name: 'Транспортёры',
       english: 'Membrane transporters',
       description:
-        'Мембранные белки переносят определённые вещества. На схеме показан эффлюкс: направление из эндотелиальной клетки в просвет сосуда, обратно к крови.',
+        'Мембранные белки переносят определённые вещества. Эффлюкс направлен из эндотелиальной клетки в просвет сосуда, обратно к крови.',
       chemistry:
         'P-gp и BCRP могут ограничивать накопление некоторых веществ. Субстратность не определяется одним logP, а активный перенос требует отдельного анализа.',
     },
@@ -938,6 +938,8 @@
     document.querySelector('.barrier-svg').classList.add('has-selection');
     for (const part of document.querySelectorAll('.anatomy-layer'))
       part.classList.toggle('active', part.dataset.layer === id);
+    for (const caption of document.querySelectorAll('.anatomy-caption'))
+      caption.classList.toggle('is-active', caption.dataset.layerLabel === id);
     for (const button of $('layer-tabs').querySelectorAll('button'))
       button.setAttribute('aria-pressed', String(button.dataset.layer === id));
   }
@@ -954,6 +956,8 @@
   }
   for (const part of document.querySelectorAll('.anatomy-layer'))
     part.addEventListener('click', () => selectLayer(part.dataset.layer));
+  for (const caption of document.querySelectorAll('.anatomy-caption'))
+    caption.addEventListener('click', () => selectLayer(caption.dataset.layerLabel));
   $('search').addEventListener('input', renderList);
   $('add-compare').addEventListener('click', () => {
     if (compare.includes(selected)) return;
