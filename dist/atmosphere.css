@@ -1456,6 +1456,221 @@ body:not(.atmosphere-on) .layer-portrait {
   display: none;
 }
 
+/* GLASS VEIL print language: shared ink edges, screen tone and brief registration shifts. */
+.atmosphere-on :is(.section-heading, .zoom-heading, .comparison-heading) {
+  border-top-color: transparent;
+  background-image:
+    linear-gradient(
+      90deg,
+      var(--ink) 0 18%,
+      transparent 18% 18.6%,
+      var(--ink) 18.6% 64%,
+      transparent 64% 65.2%,
+      var(--ink) 65.2% 92%,
+      transparent 92% 92.5%,
+      var(--ink) 92.5%
+    ),
+    linear-gradient(90deg, transparent 68%, #23212642 68% 88%, transparent 88%);
+  background-size:
+    100% 2px,
+    100% 1px;
+  background-position:
+    left top,
+    2px 4px;
+  background-repeat: no-repeat;
+}
+
+.atmosphere-on :is(.section-heading h2, .zoom-heading h2, .comparison-heading h3) {
+  letter-spacing: -0.035em;
+  text-shadow: 0.7px 0.4px 0 #23212624;
+}
+
+.atmosphere-on :is(.section-heading, .zoom-heading) .eyebrow {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 24% 100%, 24% 91%, 0 91%);
+}
+
+.atmosphere-on :is(.dossier-top h3, .layer-detail h3) {
+  text-shadow: 0.6px 0 0 #23212624;
+}
+
+.atmosphere-on :is(.zoom-layout, .structure-stage, .barrier-map, .layer-detail) {
+  box-shadow: 3px 3px 0 -2px #23212652;
+}
+
+.atmosphere-on :is(.zoom-copy, .layer-chemistry, .descriptor-explanation) {
+  border-image: linear-gradient(180deg, #302937, #302937 68%, transparent 68% 71%, #302937 71%) 1;
+}
+
+.atmosphere-on :is(.property-card, .map-key, .transport-panel) {
+  border-color: #2321264d;
+}
+
+.atmosphere-on :is(.property-card-head h4, .map-key h4, .panel-label) {
+  letter-spacing: 0.025em;
+}
+
+.atmosphere-on .bar-fill {
+  background-image: repeating-linear-gradient(125deg, transparent 0 5px, #ffffff38 5px 6px);
+}
+
+.atmosphere-on .barrier-svg [data-layer='endothelium'] {
+  stroke-width: 2.8;
+  stroke-linejoin: round;
+}
+
+.atmosphere-on .barrier-svg .cell-nuclei {
+  stroke: #302a35;
+  stroke-width: 0.8;
+}
+
+.atmosphere-on .barrier-svg [data-layer='pericyte'] {
+  stroke-width: 1.8;
+}
+
+.atmosphere-on .barrier-svg .anatomy-print {
+  pointer-events: none;
+}
+
+.atmosphere-on .barrier-svg.has-selection .anatomy-layer.active {
+  opacity: 1;
+  filter: drop-shadow(0.6px 0.8px 0 #3029372b);
+}
+
+.atmosphere-on .barrier-svg [data-layer='junctions'] {
+  stroke-linecap: square;
+}
+
+.atmosphere-on :is(.route-trace-line, .flow-route) {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.atmosphere-on
+  :is(
+    .button,
+    .molecule-item,
+    .descriptor,
+    .layer-tab,
+    .chart-tabs button,
+    .transport-controls button
+  ) {
+  position: relative;
+  isolation: isolate;
+}
+
+.atmosphere-on
+  :is(
+    .button,
+    .molecule-item,
+    .descriptor,
+    .layer-tab,
+    .chart-tabs button,
+    .transport-controls button
+  )::after {
+  content: '';
+  position: absolute;
+  inset: auto 8px 3px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    currentColor 0 29%,
+    transparent 29% 34%,
+    currentColor 34% 81%,
+    transparent 81% 86%,
+    currentColor 86%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+.atmosphere-on
+  :is(
+    .molecule-item,
+    .descriptor,
+    .layer-tab,
+    .chart-tabs button,
+    .transport-controls button
+  )[aria-pressed='true']::after {
+  opacity: 0.5;
+}
+
+.atmosphere-on .zoom-steps button[aria-pressed='true'] {
+  border-image: linear-gradient(90deg, #675273 0 60%, transparent 60% 65%, #675273 65%) 1;
+}
+
+.atmosphere-on :is(.descriptor, .molecule-item)[aria-pressed='true'] {
+  box-shadow: inset 2px 0 0 currentColor;
+}
+
+@media (hover: hover) {
+  .atmosphere-on
+    :is(
+      .button,
+      .molecule-item,
+      .descriptor,
+      .layer-tab,
+      .chart-tabs button,
+      .transport-controls button
+    ):hover:not(:disabled)::after {
+    opacity: 0.55;
+    animation: veil-registration 180ms steps(2, end) both;
+  }
+}
+
+.atmosphere-on
+  :is(
+    .button,
+    .molecule-item,
+    .descriptor,
+    .layer-tab,
+    .chart-tabs button,
+    .transport-controls button
+  ):focus-visible::after {
+  opacity: 0.55;
+  animation: veil-registration 180ms steps(2, end) both;
+}
+
+@keyframes veil-registration {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(2px);
+  }
+  70% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+body.atmosphere-on[data-motion='off']
+  :is(
+    .button,
+    .molecule-item,
+    .descriptor,
+    .layer-tab,
+    .chart-tabs button,
+    .transport-controls button
+  )::after {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmosphere-on
+    :is(
+      .button,
+      .molecule-item,
+      .descriptor,
+      .layer-tab,
+      .chart-tabs button,
+      .transport-controls button
+    )::after {
+    animation: none;
+  }
+}
+
 /* GLASS VEIL: outlined panes and a restrained horizontal print echo. */
 .atmosphere-on .brand--veil {
   display: inline-grid;

@@ -615,6 +615,22 @@
                     fill="#171717"
                   />
                 </marker>
+                <pattern
+                  id="ink-hatch"
+                  width="11"
+                  height="11"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M-2 11L9 0 M8 13L13 8"
+                    fill="none"
+                    stroke="#302a35"
+                    stroke-width="0.8"
+                  />
+                </pattern>
+                <clipPath id="endothelium-print-clip">
+                  <use href="#endothelium-surface" />
+                </clipPath>
               </defs>
               <rect
                 x="24"
@@ -711,14 +727,37 @@
                 stroke="#252525"
                 stroke-width="2"
               >
-                <path d="M24 240Q216 236 410 240T796 240V303Q604 307 410 303T24 303Z" />
+                <path
+                  id="endothelium-surface"
+                  d="M24 240Q216 236 410 240T796 240V303Q604 307 410 303T24 303Z"
+                />
+                <g
+                  class="anatomy-print"
+                  clip-path="url(#endothelium-print-clip)"
+                  aria-hidden="true"
+                  stroke="none"
+                >
+                  <path
+                    d="M24 288Q170 279 339 291T657 285L796 279V310H24Z"
+                    fill="url(#ink-hatch)"
+                    opacity="0.4"
+                  />
+                  <path
+                    d="M25 298Q216 294 410 299T795 298V310H25Z"
+                    fill="#302a35"
+                    opacity="0.1"
+                  />
+                </g>
                 <path
                   d="M180 240V303 M339 240V303 M498 240V303 M657 240V303"
                   fill="none"
                   stroke-width="1.2"
                 />
               </g>
-              <g fill="#87857c">
+              <g
+                class="cell-nuclei"
+                fill="#87857c"
+              >
                 <ellipse
                   cx="100"
                   cy="274"
@@ -780,7 +819,16 @@
                 stroke-width="1.5"
               >
                 <path
+                  id="pericyte-surface"
                   d="M465 332Q530 318 580 335Q622 325 668 334Q620 348 580 344Q516 332 465 332Z"
+                />
+                <use
+                  class="anatomy-print"
+                  href="#pericyte-surface"
+                  fill="url(#ink-hatch)"
+                  stroke="none"
+                  opacity="0.4"
+                  aria-hidden="true"
                 />
                 <ellipse
                   cx="578"

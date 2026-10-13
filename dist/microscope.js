@@ -353,8 +353,14 @@
     }
 
     // A few short ink hatches follow the surface, leaving the cutaway readable.
-    for (const x of [-2.65, -2.4, 2.35, 2.6]) {
-      line([ring(x, radius + 0.006, 2.65), ring(x + 0.08, radius + 0.006, 2.9)], '#777', 0.55);
+    for (const x of [-2.65, -2.48, -2.31, -2.14, 2.05, 2.22, 2.39, 2.56]) {
+      line([ring(x, radius + 0.006, 2.55), ring(x + 0.1, radius + 0.006, 2.96)], '#666', 0.6);
+      if (atmosphere)
+        line(
+          [ring(x + 0.05, radius + 0.008, 2.65), ring(x + 0.1, radius + 0.008, 2.86)],
+          '#333',
+          0.35,
+        );
     }
 
     // Short seams and flattened nuclei sit on the wall, outside the lumen.
